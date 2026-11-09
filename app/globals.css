@@ -1,0 +1,244 @@
+
+@import "tailwindcss";
+
+:root {
+  /* Main palette */
+  --wedding-pink: #F3C3D0;
+  --wedding-rose: #D985A0;
+  --wedding-mint: #E4EEE7;
+
+  /* Supporting colors */
+  --wedding-ivory: #FFF9FA;
+  --wedding-ink: #593744;
+  --wedding-ink-soft: #754F5C;
+  --wedding-border: #E8D7DC;
+
+  --background: var(--wedding-pink);
+  --foreground: var(--wedding-ink);
+}
+
+@theme inline {
+  --color-wedding-pink: #F3C3D0;
+  --color-wedding-rose: #D985A0;
+  --color-wedding-mint: #E4EEE7;
+  --color-wedding-ivory: #FFF9FA;
+  --color-wedding-ink: #593744;
+  --color-wedding-ink-soft: #754F5C;
+  --color-wedding-border: #E8D7DC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--wedding-pink);
+  color: var(--wedding-ink);
+  font-family: var(--font-body), sans-serif;
+}
+
+::selection {
+  background: var(--wedding-rose);
+  color: var(--wedding-ink);
+}
+
+/* Main button */
+.wedding-button {
+  background: var(--wedding-rose);
+  color: var(--wedding-ink);
+  border: 1px solid rgba(89, 55, 68, 0.12);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.wedding-button:hover {
+  background: #CF7C97;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(89, 55, 68, 0.12);
+}
+
+/* Section backgrounds */
+.wedding-section-pink {
+  background: var(--wedding-pink);
+}
+
+.wedding-section-rose {
+  background: var(--wedding-rose);
+}
+
+.wedding-section-mint {
+  background: var(--wedding-mint);
+}
+
+.wedding-card {
+  background: var(--wedding-ivory);
+  border: 1px solid var(--wedding-border);
+  border-radius: 1.25rem;
+}
+
+/* Floating hearts */
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.65;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Heading font */
+.font-heading {
+  font-family: var(--font-heading), serif;
+}
+
+/* Floating hearts */
+.floating-heart {
+  animation-name: float-heart;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+@keyframes float-heart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.65;
+  }
+
+  85% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+/* Gallery cross-fade */
+.gallery-image {
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.8s ease,
+    transform 1.2s ease;
+}
+
+.gallery-image.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Buttons */
+.wedding-button {
+  background: #D985A0;
+  color: #593744;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.wedding-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgb(89 55 68 / 15%);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .floating-heart {
+    animation: none;
+    display: none;
+  }
+
+  .gallery-image {
+    transition: none;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-heading), serif;
+}
+
+.floating-heart {
+  animation: float-heart linear infinite;
+  opacity: 0;
+}
+
+@keyframes float-heart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.gallery-image {
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.gallery-image.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wedding-button {
+  background: #D985A0;
+  color: #593744;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wedding-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgb(89 55 68 / 15%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-heart {
+    animation: none;
+  }
+
+  .gallery-image {
+    transition: none;
+  }
+}
